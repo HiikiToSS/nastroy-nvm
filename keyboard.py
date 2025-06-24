@@ -12,8 +12,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMar
 
 get_number = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text = 'Отправить номер', request_contact=True)]],
                                  resize_keyboard = True, input_field_pleceholder = 'Можете сделать это автоматически, нажав на кнопку')
-
-
+#
 
 instart = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text = 'Начать прямо сейчас', callback_data = 'start_now')],
                                                 [InlineKeyboardButton(text = 'Указать время', callback_data = 'time_edit')],
