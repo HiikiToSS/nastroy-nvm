@@ -13,7 +13,6 @@ async def echo(message: Message) -> None:
 
 
 async def main() -> None:
-    load_dotenv()
     bot_token = os.getenv("TG_BOT_TOKEN")
 
     dp = Dispatcher()
