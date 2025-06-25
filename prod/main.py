@@ -20,7 +20,5 @@ async def main() -> None:
     bot = Bot(token=bot_token)
     await dp.start_polling(bot)
 
-await send_message(user_id, "Привет! Это тест.")
-
 if __name__ == "__main__":
     asyncio.run(main())
