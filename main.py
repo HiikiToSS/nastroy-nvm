@@ -3,8 +3,8 @@ import asyncio
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message
-from dotenv import load_dotenv
-load_dotenv()
+# from seXXX import TG_BOT_TOKEN
+from dotenv import *
 
 
 async def echo(message: Message) -> None:
@@ -13,7 +13,8 @@ async def echo(message: Message) -> None:
 
 
 async def main() -> None:
-    bot_token = os.getenv("TG_BOT_TOKEN")
+    load_dotenv()
+    bot_token = os.getenv('TG_BOT_TOKEN')
 
     dp = Dispatcher()
     dp.message.register(echo, F.text)
