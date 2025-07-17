@@ -30,14 +30,16 @@ async def send_notif():
 @dp.message(Command("start"))
 async def send_welcome(message: Message):
     await message.answer(
-        "📈 Бот для генерации графиков\n"
-        "Отправьте /graph чтобы получить график"
+        "📈 Бот для мониторинга состояния поциента жёлтого дома"
     )
 
 
 @dp.message(Command("help"))
 async def send_nudes(message: Message):
     await message.answer('комманды: \n/start \n/graph \n/mood \nили любая хрень - тоже отвечу, но по-тупому')
+
+
+
 
 
 # Создаём Router вместо Dispatcher для модульности
@@ -69,11 +71,7 @@ async def process_mood(message: types.Message, state: FSMContext):
 
 
 
-@dp.message(Command('setN'))
-async def send_N(message: Message):
-    global currUserId
-    currUserId = message.from_user.id
-    await message.answer("Как жизнь? (0-15)")
+
 
 @dp.message(Command("graph"))
 async def send_graph(message: Message):
