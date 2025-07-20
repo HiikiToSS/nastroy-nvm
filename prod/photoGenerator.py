@@ -5,10 +5,7 @@ from db import get_userMood
 
 
 #потом вытаскивать из файла с бд
-data = {
-    "День": [a['date'] for a in get_userMood()],
-    "Значение": [a['mood'] for a in get_userMood()]
-}
+
 
 
 '''
@@ -20,11 +17,15 @@ data = {
 возможно, есть смысл менять размер холста
 '''
 
+def generate_simple_plot(userID):
 
-print(len(data['День']))
+    data = {
+        "День": [a['date'] for a in get_userMood(userID)], 
+        "Значение": [a['mood'] for a in get_userMood(userID)] }
+    print(len(data['День']))
 
-def generate_simple_plot():
-    """Генерирует линейный график с фиксированными осями"""
+
+    # Генерирует линейный график с фиксированными осями
     plt.figure(figsize=(8, 5))
     
     # Создаём график
@@ -36,7 +37,7 @@ def generate_simple_plot():
     
     # Настройки осей
     plt.ylim(0, 15)  # Фиксированный диапазон от 0 до 15
-    plt.xlim(-0.5, len(data["День"]) - 0.5)  # Небольшие отступы по X
+    plt.xlim(-0.5, len(data["День"]) + 0.5)  # Небольшие отступы по X
     
     # Подписи и оформление
     plt.title("График данных (шкала 0-15)", pad=20)
