@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from io import BytesIO
-from db import get_userMood
+from db import get_userINFO
 
 
 
@@ -20,8 +20,8 @@ from db import get_userMood
 def generate_simple_plot(userID):
 
     data = {
-        "День": [a['date'] for a in get_userMood(userID)], 
-        "Значение": [a['mood'] for a in get_userMood(userID)] }
+        "День": [a['date'][:-5] for a in get_userINFO(userID)], 
+        "Значение": [a['mood'] for a in get_userINFO(userID)] }
     print(len(data['День']))
 
 
